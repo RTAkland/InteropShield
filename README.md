@@ -1,6 +1,6 @@
 # InteropShield
 
-Auto generate Java member getter/setter for kotlin extension property.
+A Kotlin Compiler Plugin that can auto generate Java member getter/setter for kotlin extension property.
 
 | Limitation                                  | Is supported | Description/Addition info                                                      |
 |---------------------------------------------|--------------|--------------------------------------------------------------------------------|
@@ -62,7 +62,7 @@ interopShield {
 
 # 中文文档
 
-自动为Kotlin的拓展属性生成Java成员getter/setter
+一个自动为Kotlin的拓展属性生成Java成员getter/setter的Kotlin编译器插件
 
 | 限制                   | 是否支持 | 附加信息                                   |
 |----------------------|------|----------------------------------------|
