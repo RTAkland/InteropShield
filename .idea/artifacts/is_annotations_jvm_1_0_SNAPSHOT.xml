@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="is-annotations-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/is-annotations/build/libs</output-path>
+    <root id="archive" name="is-annotations-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="InteropShield.is-annotations.jvmMain" />
+    </root>
+  </artifact>
+</component>
