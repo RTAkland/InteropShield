@@ -2,16 +2,12 @@
 
 A Kotlin Compiler Plugin that can auto generate Java member getter/setter for kotlin extension property.
 
-| Limitation                                  | Is supported | Description/Addition info                                                      |
-|---------------------------------------------|--------------|--------------------------------------------------------------------------------|
-| Annotation Class                            | ❌            | Annotation class has no body                                                   |
-| Setter with generic                         | ❌            | Not supported yet                                                              |
-| Setter with generic and return generic type | ❌            | Not supported yet                                                              |
-| Normal extension property setter            | ⚠️           | Not tested fully(Not support fully)                                            |
-| Normal extension property getter            | ✅            | None                                                                           |
-| Getter with generic                         | ✅            | None                                                                           |
-| Getter with generic and return generic type | ✅            | None                                                                           |
-| Interface class                             | ⚠️           | Generated functions will be marked as deprecated by kotlin compiler internally |
+| Limitation                 | Is supported | Description/Addition info                                                                                                                  |
+|----------------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Annotation Class           | ❌            | Annotation class has no body                                                                                                               |
+| Getter                     | ✅            | None                                                                                                                                       |
+| Setter                     | ⚠️           | Not tested fully                                                                                                                           |
+| Getter/Setter with generic | ⚠️           | The Type Erasure in JVM, all generic type will be erased to `Object` <br/> Please avoid using generic in extension property getter/setter. |
 
 > The minimum Kotlin version supported by the plugin is `2.2.10`
 
@@ -64,16 +60,12 @@ interopShield {
 
 一个自动为Kotlin的拓展属性生成Java成员getter/setter的Kotlin编译器插件
 
-| 限制                   | 是否支持 | 附加信息                                   |
-|----------------------|------|----------------------------------------|
-| 注解类                  | ❌    | 注解类不可以有函数体                             |
-| 带有泛型的Setter          | ❌    | 暂不支持                                   |
-| 带有泛型的Setter并且返回类型为泛型 | ❌    | 暂不支持                                   |
-| 常规拓展属性的setter        | ⚠️   | 没完全测试(不完全支持)                           |
-| 常规拓展属性的getter        | ✅    | 无                                      |
-| 带有泛型的常规getter        | ✅    | 无                                      |
-| 带有泛型的getter并且返回类型为泛型 | ✅    | 推荐为泛型加上上界, 编译后Java使用者不用手动cast          |
-| 接口类                  | ⚠️   | 生成后的函数会被Kotlin编译器内部自动加上`@Deprecated`注解 |
+| 限制                 | 是否支持 | 附加信息                                           |
+|--------------------|------|------------------------------------------------|
+| 注解类                | ❌    | 注解类内不允许有函数体                                    |
+| Getter             | ✅    | ***无***                                        |
+| Setter             | ⚠️   | 没有完全测试                                         |
+| 带有泛型的Getter/Setter | ⚠️   | 编译时会将泛型类型擦除变为`Object`, 请避免使用带有泛型的getter/setter |
 
 > 插件开始支持的最小Kotlin版本为 `2.2.10`
 

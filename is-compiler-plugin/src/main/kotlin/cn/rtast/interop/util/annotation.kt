@@ -5,20 +5,27 @@
  */
 
 
-@file:OptIn(UnsafeDuringIrConstructionAPI::class, FirIncompatiblePluginAPI::class)
+@file:OptIn(
+    UnsafeDuringIrConstructionAPI::class, FirIncompatiblePluginAPI::class,
+    DeprecatedForRemovalCompilerApi::class
+)
 
 package cn.rtast.interop.util
 
+import org.jetbrains.kotlin.DeprecatedForRemovalCompilerApi
 import org.jetbrains.kotlin.backend.common.extensions.FirIncompatiblePluginAPI
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
+import org.jetbrains.kotlin.ir.expressions.IrConst
+import org.jetbrains.kotlin.ir.expressions.IrConstructorCall
 import org.jetbrains.kotlin.ir.expressions.impl.IrConstructorCallImpl
 import org.jetbrains.kotlin.ir.expressions.impl.fromSymbolOwner
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.util.constructors
 import org.jetbrains.kotlin.ir.util.fqNameWhenAvailable
+import org.jetbrains.kotlin.ir.util.getAnnotationStringValue
 import org.jetbrains.kotlin.ir.util.parentAsClass
 import org.jetbrains.kotlin.name.FqName
 
@@ -49,3 +56,13 @@ fun IrPluginContext.annotationConstructorCall(
     )
     return irAnnotation
 }
+
+fun IrProperty.getAnnotationArgument(annotationFqName: FqName, parameterName: String = "functionName"): String {
+    val anno = this.annotations.firstOrNull {
+        it.symbol.owner.parentAsClass.fqNameWhenAvailable == annotationFqName
+    }
+    return anno?.getAnnotationStringValue() ?: "@"
+}
+
+fun IrProperty.getGetterFuncName(): String = this.getAnnotationArgument(AUTO_GEN_GETTER_FQ_NAME)
+fun IrProperty.getSetterFuncName(): String = this.getAnnotationArgument(AUTO_GEN_SETTER_FQ_NAME)

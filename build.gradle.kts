@@ -12,7 +12,7 @@ allprojects {
     }
 
     group = "cn.rtast.interop"
-    version = "0.0.1-2.2.10"
+    version = "1.0.0-2.2.10"
 }
 
 subprojects {
@@ -20,13 +20,14 @@ subprojects {
 
     publishing {
         repositories {
-            mavenLocal()
-//            maven("https://repo.maven.rtast.cn/releases") {
-//                credentials {
-//                    username = "RTAkland"
-//                    password = System.getenv("PUBLISH_TOKEN")
-//                }
-//            }
+//            mavenLocal()
+            maven("https://repo.maven.rtast.cn/releases") {
+                credentials {
+                    username = "RTAkland"
+                    password = System.getenv("PUBLISH_TOKEN")
+                }
+            }
+
         }
     }
 }

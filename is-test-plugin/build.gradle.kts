@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("cn.rtast.interop") version "0.0.1-2.2.10"
+    id("cn.rtast.interop") version "1.0.0-2.2.10"
 }
 
 repositories {
@@ -16,6 +16,10 @@ kotlin {
 
         }
     }
+}
+
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    enabled = false
 }
 
 interopShield {
