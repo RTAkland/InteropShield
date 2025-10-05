@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.2.10" apply false
-    kotlin("multiplatform") version "2.2.10" apply false
+    kotlin("jvm") version "2.2.20" apply false
+    kotlin("multiplatform") version "2.2.20" apply false
     id("com.github.gmazzo.buildconfig") version "5.6.5"
     id("maven-publish")
 }
@@ -12,7 +12,7 @@ allprojects {
     }
 
     group = "cn.rtast.interop"
-    version = "1.0.0-2.2.10"
+    version = "1.0.1-2.2.20"
 }
 
 subprojects {
@@ -27,7 +27,6 @@ subprojects {
                     password = System.getenv("PUBLISH_TOKEN")
                 }
             }
-
         }
     }
 }
