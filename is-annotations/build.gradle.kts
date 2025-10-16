@@ -10,4 +10,5 @@ kotlin {
     linuxArm64()
     mingwX64()
     iosArm64()
+    macosX64()
 }
