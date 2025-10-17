@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/is-annotations" />
             <option value="$PROJECT_DIR$/is-compiler-plugin" />
             <option value="$PROJECT_DIR$/is-gradle-plugin" />
-            <option value="$PROJECT_DIR$/is-test-plugin" />
           </set>
         </option>
       </GradleProjectSettings>

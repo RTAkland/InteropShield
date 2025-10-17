@@ -12,7 +12,7 @@ allprojects {
     }
 
     group = "cn.rtast.interop"
-    version = "1.0.2-2.2.20"
+    version = "1.0.3-2.2.20"
 }
 
 subprojects {

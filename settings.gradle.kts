@@ -21,4 +21,4 @@ rootProject.name = "InteropShield"
 include(":is-gradle-plugin")
 include(":is-compiler-plugin")
 include(":is-annotations")
-include(":is-test-plugin")
+//include(":is-test-plugin")

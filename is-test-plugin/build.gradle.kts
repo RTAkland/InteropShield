@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("cn.rtast.interop") version "1.0.0-2.2.10"
+    id("cn.rtast.interop") version "1.0.2-2.2.20"
 }
 
 repositories {
